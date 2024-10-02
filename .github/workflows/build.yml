@@ -40,9 +40,11 @@ jobs:
           rm -rf ~/build/cloudbeaver/webapp
           rm -rf ~/build/cloudbeaver/server
       - name: Generating artifact
-        run: tar -cvfz ~/cloudbeaver.tar.gz -C ~/build ~/build/cloudbeaver
+        run: |
+          cd ~/build
+          tar -cvz -f ./cloudbeaver.tar.gz cloudbeaver
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ github.head_ref || github.ref_name }}
-          path: ~/cloudbeaver.tar.gz
+          path: ~/build/cloudbeaver.tar.gz
           overwrite: true
