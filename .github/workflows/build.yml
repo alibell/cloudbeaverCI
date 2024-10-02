@@ -19,7 +19,7 @@ jobs:
           export PATH=${M2_HOME}/bin:${PATH}
       - name: checkout cloudbeaver
         run: |
-          echo $MAVEN_HOME
+          env
           mkdir ~/build && cd ~/build
           git clone https://github.com/dbeaver/cloudbeaver.git -b release_24_2_1 ~/build/cloudbeaver
           git clone https://github.com/dbeaver/dbeaver.git -b release_24_2_1 ~/build/dbeaver
