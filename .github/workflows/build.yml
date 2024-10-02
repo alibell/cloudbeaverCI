@@ -15,10 +15,11 @@ jobs:
           java-version: '21'
       - name: checkout cloudbeaver
         run: |
-          mkdir /build && cd /build
-          git clone https://github.com/dbeaver/cloudbeaver.git -b release_24_2_1 /build/cloudbeaver
-          git clone https://github.com/dbeaver/dbeaver.git -b release_24_2_1 /build/dbeaver
-          git clone https://github.com/dbeaver/dbeaver-common.git -b release_24_2_1 /build/dbeaver-common
+          mkdir ~/build && cd ~/build
+          git clone https://github.com/dbeaver/cloudbeaver.git -b release_24_2_1 ~/build/cloudbeaver
+          git clone https://github.com/dbeaver/dbeaver.git -b release_24_2_1 ~/build/dbeaver
+          git clone https://github.com/dbeaver/dbeaver-common.git -b release_24_2_1 ~/build/dbeaver-common
       - name: Compiling Cloudbeaver
         run: |
-          cd /build/cloudbeaver/deploy && ./build.sh
+          ls -lh ~/build
+          cd ~/build/cloudbeaver/deploy && ./build.sh
