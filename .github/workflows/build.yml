@@ -47,6 +47,7 @@ jobs:
           tar -cvz -f ./cloudbeaver.tar.gz cloudbeaver
       - uses: softprops/action-gh-release@v2
         with:
-          name: ${{ env.GIT_BRANCH_NAME }}
+          name: ${{ env.GIT_BRANCH_NAME }}-${{ github.sha }}
+          tag: ${{ env.GIT_BRANCH_NAME }}
           files: ~/build/cloudbeaver.tar.gz
           make_latest: true
