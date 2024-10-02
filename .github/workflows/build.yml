@@ -12,14 +12,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node_version: 31
-      - name: Get compatible Maven
+      - name: Get Yarn and compatible Maven
         run: |
-          apt update && apt install -y openjdk-17-jdk yarn nodejs
+          curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+          echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+          sudo apt update && sudo apt install -y openjdk-17-jdk yarn nodejs
           wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
           tar -xvf apache-maven-3.9.6-bin.tar.gz -C /opt && rm apache-maven-3.9.6-bin.tar.gz
       - name: checkout cloudbeaver
         run: |
-          env
           mkdir ~/build && cd ~/build
           git clone https://github.com/dbeaver/cloudbeaver.git -b release_24_2_1 ~/build/cloudbeaver
           git clone https://github.com/dbeaver/dbeaver.git -b release_24_2_1 ~/build/dbeaver
@@ -28,5 +29,6 @@ jobs:
         run: |
           export PATH=${M2_HOME}/bin:${PATH}
           cd ~/build/cloudbeaver/deploy && ./build.sh
+
           rm -rf ~/build/cloudbeaver/webapp
           rm -rf ~/build/cloudbeaver/server
