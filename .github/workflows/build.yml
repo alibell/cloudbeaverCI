@@ -4,6 +4,9 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      M2_HOME: /opt/maven
+      MAVEN_HOME: /opt/maven
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -14,9 +17,6 @@ jobs:
           apt update && apt install -y openjdk-17-jdk yarn nodejs
           wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
           tar -xvf apache-maven-3.9.6-bin.tar.gz -C /opt && rm apache-maven-3.9.6-bin.tar.gz
-          export M2_HOME=/opt/maven
-          export MAVEN_HOME=/opt/maven
-          export PATH=${M2_HOME}/bin:${PATH}
       - name: checkout cloudbeaver
         run: |
           env
@@ -26,6 +26,7 @@ jobs:
           git clone https://github.com/dbeaver/dbeaver-common.git -b release_24_2_1 ~/build/dbeaver-common
       - name: Compiling Cloudbeaver
         run: |
+          export PATH=${M2_HOME}/bin:${PATH}
           cd ~/build/cloudbeaver/deploy && ./build.sh
           rm -rf ~/build/cloudbeaver/webapp
           rm -rf ~/build/cloudbeaver/server
