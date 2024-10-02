@@ -31,4 +31,3 @@ jobs:
           cd ~/build/cloudbeaver/deploy && ./build.sh
           rm -rf ~/build/cloudbeaver/webapp
           rm -rf ~/build/cloudbeaver/server
-      - name: 
