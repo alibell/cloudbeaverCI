@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       M2_HOME: /opt/maven
+      MVN_HOME: /opt/maven
       MAVEN_HOME: /opt/maven
     steps:
       - uses: actions/checkout@v4
