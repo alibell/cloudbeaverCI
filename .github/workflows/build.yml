@@ -48,5 +48,6 @@ jobs:
           tar -cvz -f ./cloudbeaver.tar.gz cloudbeaver
       - uses: softprops/action-gh-release@v2
         with:
-          files: ~/build/cloudbeaver.tar.gz
+          files: |
+            cloudbeaver.tar.gz
           make_latest: true
