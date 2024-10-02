@@ -45,6 +45,7 @@ jobs:
       - name: Generating artifact
         run: |
           cd ~/build
+          rm -rf cloudbeaver/.git
           tar -cvz -f ./cloudbeaver.tar.gz cloudbeaver
           ls -l
       - uses: softprops/action-gh-release@v2
