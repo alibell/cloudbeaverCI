@@ -14,11 +14,12 @@ jobs:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '21'
       - name: Get compatible Maven
-        wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
-        tar -xvf apache-maven-3.9.6-bin.tar.gz -C /opt && rm apache-maven-3.9.6-bin.tar.gz
-        export M2_HOME=/opt/maven
-        export MAVEN_HOME=/opt/maven
-        export PATH=${M2_HOME}/bin:${PATH}
+        run: |
+          wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
+          tar -xvf apache-maven-3.9.6-bin.tar.gz -C /opt && rm apache-maven-3.9.6-bin.tar.gz
+          export M2_HOME=/opt/maven
+          export MAVEN_HOME=/opt/maven
+          export PATH=${M2_HOME}/bin:${PATH}
       - name: checkout cloudbeaver
         run: |
           mkdir ~/build && cd ~/build
