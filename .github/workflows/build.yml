@@ -12,6 +12,8 @@ jobs:
       MAVEN_HOME: /opt/maven
     steps:
       - uses: actions/checkout@v4
+      - uses: EthanSK/git-branch-name-action@v1
+      - run: echo $GIT_BRANCH_NAME
       - uses: actions/setup-node@v4
         with:
           node_version: 31
@@ -45,6 +47,6 @@ jobs:
           tar -cvz -f ./cloudbeaver.tar.gz cloudbeaver
       - uses: actions/upload-artifact@v4
         with:
-          name: ${{ github.head_ref || github.ref_name }}
+          name: ${{ env.GIT_BRANCH_NAME }}
           path: ~/build/cloudbeaver.tar.gz
           overwrite: true
