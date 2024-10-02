@@ -19,6 +19,8 @@ jobs:
           sudo apt update && sudo apt install -y openjdk-17-jdk yarn nodejs
           wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
           tar -xvf apache-maven-3.9.6-bin.tar.gz -C /opt && rm apache-maven-3.9.6-bin.tar.gz
+
+          mvn -v
       - name: checkout cloudbeaver
         run: |
           mkdir ~/build && cd ~/build
