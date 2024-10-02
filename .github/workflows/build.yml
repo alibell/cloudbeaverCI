@@ -1,6 +1,8 @@
 name: Build Workflow
 run-name: build
-on: [push]
+on:
+  push:
+    branches: release/*
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -37,3 +39,10 @@ jobs:
 
           rm -rf ~/build/cloudbeaver/webapp
           rm -rf ~/build/cloudbeaver/server
+      - name: Generating artifact
+          tar -cvfz ~/cloudbeaver.tar.gz -C ~/build ~/build/cloudbeaver
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.head_ref || github.ref_name }}
+          path: ~/cloudbeaver.tar.gz
+          overwrite: true
