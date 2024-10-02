@@ -1,0 +1,1 @@
+This repository perform a Cloudbeaver compilation for use in Docker images.
