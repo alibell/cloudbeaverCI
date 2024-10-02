@@ -47,13 +47,14 @@ jobs:
           cd ~/build
           rm -rf cloudbeaver/.git
           tar -cvz -f ./cloudbeaver.tar.gz cloudbeaver
+          chmod 777 ./cloudbeaver.tar.gz
           pwd
           ls -l
       - uses: softprops/action-gh-release@v2
         with:
           fail_on_unmatched_files: true
           files: |
-            ./build/cloudbeaver.tar.gz
+            cloudbeaver.tar.gz
           make_latest: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
