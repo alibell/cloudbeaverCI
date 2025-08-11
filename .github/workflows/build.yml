@@ -32,9 +32,9 @@ jobs:
       - name: checkout cloudbeaver
         run: |
           mkdir ~/build && cd ~/build
-          git clone https://github.com/dbeaver/cloudbeaver.git -b release_24_3_5 ~/build/cloudbeaver
-          git clone https://github.com/dbeaver/dbeaver.git -b release_24_3_5 ~/build/dbeaver
-          git clone https://github.com/dbeaver/dbeaver-common.git -b release_24_3_5 ~/build/dbeaver-common
+          git clone https://github.com/dbeaver/cloudbeaver.git -b release_25_1_4 ~/build/cloudbeaver
+          git clone https://github.com/dbeaver/dbeaver.git -b release_25_1_4 ~/build/dbeaver
+          git clone https://github.com/dbeaver/dbeaver-common.git -b release_25_1_4 ~/build/dbeaver-common
       - name: Compiling Cloudbeaver
         run: |
           export PATH=${M2_HOME}/bin:${PATH}
