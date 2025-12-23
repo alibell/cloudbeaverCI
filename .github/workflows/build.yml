@@ -28,7 +28,9 @@ jobs:
           tar -xvf apache-maven-3.9.12-bin.tar.gz -C /opt && rm apache-maven-3.9.12-bin.tar.gz
           ln -s /opt/apache-maven-3.9.12 /opt/maven
 
-          npm install --global yarn@4.9.2
+          corepack enable
+          yarn set version 4.9.3
+          yarn install
 
           env
           mvn -v
