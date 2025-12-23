@@ -28,6 +28,8 @@ jobs:
           tar -xvf apache-maven-3.9.12-bin.tar.gz -C /opt && rm apache-maven-3.9.12-bin.tar.gz
           ln -s /opt/apache-maven-3.9.12 /opt/maven
 
+          npm install --global yarn@4.9.2
+
           env
           mvn -v
       - name: checkout cloudbeaver
