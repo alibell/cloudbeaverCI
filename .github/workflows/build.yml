@@ -16,9 +16,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: EthanSK/git-branch-name-action@v1
       - run: echo $GIT_BRANCH_NAME
-      - uses: actions/setup-node@v4
-        with:
-          node_version: 31
       - name: Get Yarn and compatible Maven
         run: |
           sudo apt update && sudo apt install -y openjdk-21-jdk nodejs
@@ -34,8 +31,7 @@ jobs:
         run: |
           env
           mvn -v
-          npx vite --version
-          node -p "process.version"
+          yarn node -v
       - name: checkout cloudbeaver
         run: |
           mkdir ~/build && cd ~/build
