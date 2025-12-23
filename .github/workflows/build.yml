@@ -31,6 +31,10 @@ jobs:
           wget https://dlcdn.apache.org/maven/maven-3/3.9.12/binaries/apache-maven-3.9.12-bin.tar.gz
           tar -xvf apache-maven-3.9.12-bin.tar.gz -C /opt && rm apache-maven-3.9.12-bin.tar.gz
           ln -s /opt/apache-maven-3.9.12 /opt/maven
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
       - name: Check versions
         run: |
           env
