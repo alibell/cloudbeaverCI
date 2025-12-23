@@ -22,7 +22,7 @@ jobs:
         run: |
           curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
           echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-          sudo apt update && sudo apt install -y openjdk-17-jdk yarn nodejs
+          sudo apt update && sudo apt install -y openjdk-21-jdk yarn nodejs
           wget https://dlcdn.apache.org/maven/maven-3/3.9.12/binaries/apache-maven-3.9.12-bin.tar.gz
           tar -xvf apache-maven-3.9.12-bin.tar.gz -C /opt && rm apache-maven-3.9.12-bin.tar.gz
           ln -s /opt/apache-maven-3.9.12 /opt/maven
